@@ -1,3 +1,4 @@
+
 #! /usr/bin/env python3
 
 import sys
@@ -29,6 +30,10 @@ def translate_sequence(rna_sequence, genetic_code):
         A string of the translated amino acids.
     """
     pass
+#if rna_sequence < 3 or rna_sequence *"*":
+#    print()
+
+
 
 def get_all_translations(rna_sequence, genetic_code):
     """Get a list of all amino acid sequences encoded by an RNA sequence.
@@ -75,7 +80,15 @@ def get_reverse(sequence):
     >>> get_reverse('AUGC')
     'CGUA'
     """
-    pass
+    print("\n\nsequence: " + sequence)
+    sequence = sequence.upper()
+    sequence = sequence [::-1]
+    print("reverse sequence: " + sequence)
+    if (sequence != ''):
+        return sequence
+    else:
+        return ''
+
 
 def get_complement(sequence):
     """Get the complement of a `sequence` of nucleotides.
@@ -89,7 +102,14 @@ def get_complement(sequence):
     >>> get_complement('AUGC')
     'UACG'
     """
-    pass
+    print("\nsequence:" + sequence)
+    sequence = sequence.upper()
+    complement = {'A':'U','C':'G','G':'C','U':'A'}
+    return ''.join([complement[base] for base in sequence])
+    if (sequence != ''):
+        return ''.join([complement[base] for base in sequence])
+    else:
+        return ''
 
 def reverse_and_complement(sequence):
     """Get the reversed and complemented form of a `sequence` of nucleotides.
